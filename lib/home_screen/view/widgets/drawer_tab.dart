@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:home_rent_ui/home_screen/provider/home_screen_provider.dart';
+import 'package:home_rent_ui/utils/custom_enums.dart';
+import 'package:home_rent_ui/utils/custom_extension.dart';
+import 'package:provider/provider.dart';
 import '../../../utils/custom_colors.dart';
 
 class DrawerTab extends StatelessWidget {
@@ -6,34 +10,44 @@ class DrawerTab extends StatelessWidget {
     super.key,
     required this.title,
     required this.iconPath,
+    required this.tab,
   });
 
   final String title;
   final String iconPath;
+  final DrawerList tab;
 
   @override
   Widget build(BuildContext context) {
     // Retrieves the size of the device screen.
     final screenWidth = MediaQuery.of(context).size.width;
     return SizedBox(
-      width: screenWidth * 0.45,
-      child: Card(
-        color: Colors.white,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.horizontal(
-            right: Radius.circular(30),
+      width: screenWidth * 0.5,
+      child: Consumer<HomeScreenProvider>(
+        builder: (context, snapShot, child) => AnimatedContainer(
+          duration: const Duration(milliseconds: 400),
+          decoration: BoxDecoration(
+            color: snapShot.currentTab == tab
+                ? Colors.white
+                : CustomColors.mainBlue,
+            borderRadius: const BorderRadius.horizontal(
+              right: Radius.circular(30),
+            ),
           ),
-        ),
-        child: ListTile(
-          leading: Image.asset(
-            iconPath,
-            width: screenWidth * 0.055,
-            height: screenWidth * 0.055,
-          ),
-          title: Text(
-            title,
-            style: TextStyle(
-              color: CustomColors.mainBlue,
+          child: ListTile(
+            onTap: () => snapShot.switchTab(tab: tab),
+            leading: Image.asset(
+              iconPath,
+              width: screenWidth * 0.055,
+              height: screenWidth * 0.055,
+            ),
+            title: Text(
+              tab.name.capitalize(),
+              style: TextStyle(
+                color: snapShot.currentTab == tab
+                    ? CustomColors.mainBlue
+                    : Colors.white,
+              ),
             ),
           ),
         ),
