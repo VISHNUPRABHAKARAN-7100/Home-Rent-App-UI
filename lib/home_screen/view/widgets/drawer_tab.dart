@@ -29,7 +29,7 @@ class DrawerTab extends StatelessWidget {
         builder: (context, snapShot, child) => AnimatedContainer(
           duration: const Duration(milliseconds: 400),
           decoration: BoxDecoration(
-            color: snapShot.currentTab == tab
+            color: snapShot.currentDrawerTab == tab
                 ? Colors.white
                 : CustomColors.mainBlue,
             borderRadius: const BorderRadius.horizontal(
@@ -37,9 +37,9 @@ class DrawerTab extends StatelessWidget {
             ),
           ),
           child: ListTile(
-            onTap: () => snapShot.switchTab(tab: tab),
+            onTap: () => snapShot.switchDrawerTab(tab: tab),
             leading: Image.asset(
-              snapShot.currentTab == tab
+              snapShot.currentDrawerTab == tab
                   ? selectedIconPath
                   : unSelectedIconPath,
               width: screenWidth * 0.055,
@@ -48,7 +48,7 @@ class DrawerTab extends StatelessWidget {
             title: Text(
               tab.name.capitalize(),
               style: TextStyle(
-                color: snapShot.currentTab == tab
+                color: snapShot.currentDrawerTab == tab
                     ? CustomColors.mainBlue
                     : Colors.white,
               ),

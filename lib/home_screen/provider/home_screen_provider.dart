@@ -5,7 +5,9 @@ class HomeScreenProvider with ChangeNotifier {
   bool isDrawerOpen = false;
   double xOffset = 0;
 
-  DrawerList currentTab = DrawerList.home;
+  DrawerList currentDrawerTab = DrawerList.home;
+
+  HomeTabsEnum currentHomeTab = HomeTabsEnum.house;
 
   void openDrawer() {
     if (isDrawerOpen) {
@@ -18,8 +20,13 @@ class HomeScreenProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  switchTab({required DrawerList tab}) {
-    currentTab = tab;
+  switchDrawerTab({required DrawerList tab}) {
+    currentDrawerTab = tab;
+    notifyListeners();
+  }
+
+  switchHomeTab({required HomeTabsEnum homeTab}) {
+    currentHomeTab = homeTab;
     notifyListeners();
   }
 }

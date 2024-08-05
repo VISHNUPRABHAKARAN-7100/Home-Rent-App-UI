@@ -44,4 +44,10 @@ class AssetPath {
   // Settings with lines icon path.
   static String settingsWithLinesIconPath =
       "${basePathForIcons}setting_lines.png";
+
+  // Bed icon path.
+  static String bedIconPath = "${basePathForIcons}bed.png";
+
+  // Bath icon path.
+  static String bathIconPath = "${basePathForIcons}bath.png";
 }
