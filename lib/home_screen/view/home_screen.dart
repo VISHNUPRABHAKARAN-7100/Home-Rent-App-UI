@@ -15,8 +15,9 @@ class HomeScreen extends StatelessWidget {
       body: Consumer<HomeScreenProvider>(
         builder: (context, snapShot, child) => AnnotatedRegion(
           value: SystemUiOverlayStyle(
-            statusBarColor:
-                snapShot.isDrawerOpen ? CustomColors.mainBlue : Colors.white,
+            statusBarColor: snapShot.isDrawerOpen
+                ? CustomColors.mainBlue
+                : CustomColors.backgroundBg,
             statusBarIconBrightness: Brightness.dark,
             statusBarBrightness: Brightness.dark,
           ),

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:home_rent_ui/home_screen/provider/home_screen_provider.dart';
-import 'package:home_rent_ui/home_screen/view/widgets/home_search_filed.dart';
+import 'package:home_rent_ui/home_screen/view/widgets/house_search_filed.dart';
 import 'package:home_rent_ui/home_screen/view/widgets/house_card.dart';
-import 'package:home_rent_ui/utils/asset_path.dart';
 import 'package:provider/provider.dart';
 import '../../model/house_model.dart';
-import 'home_app_bar.dart';
-import 'home_tabs.dart';
+import 'best_for_you_card.dart';
+import 'house_app_bar.dart';
+import 'house_tabs.dart';
 import 'section_title.dart';
 
 class Home extends StatelessWidget {
@@ -40,7 +39,7 @@ class Home extends StatelessWidget {
               const HomeSearchField(),
               Expanded(
                 child: ListView(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
                   children: [
                     const SizedBox(height: 20),
                     const HomeTabs(),
@@ -53,12 +52,12 @@ class Home extends StatelessWidget {
                     SizedBox(
                       height: 290,
                       child: ListView.builder(
-                        padding: const EdgeInsets.only(right: 20),
                         scrollDirection: Axis.horizontal,
                         itemCount: homeList.length,
                         itemBuilder: (context, index) {
                           final house = homeList[index];
                           return HouseCard(
+                            id: house.id,
                             imageUrl: house.image,
                             distance: "${house.distance} km",
                             title: house.title,
@@ -80,6 +79,7 @@ class Home extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final house = bestForYouList[index];
                         return BestForYouCard(
+                          id: house.id,
                           imageUrl: house.image,
                           title: house.title,
                           rentPerYear: house.yearlyRent,
@@ -93,103 +93,6 @@ class Home extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class BestForYouCard extends StatelessWidget {
-  const BestForYouCard({
-    super.key,
-    required this.imageUrl,
-    required this.title,
-    required this.rentPerYear,
-    required this.bathRoomCount,
-    required this.bedRoomCount,
-  });
-
-  final String imageUrl;
-  final String title;
-  final double rentPerYear;
-  final int bathRoomCount;
-  final int bedRoomCount;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
-      child: SizedBox(
-        height: 100,
-        child: Row(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
-                height: 100,
-                width: 100,
-              ),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: GoogleFonts.raleway(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20,
-                    ),
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  Text(
-                    "Rp. $rentPerYear / Year",
-                    style: GoogleFonts.raleway(
-                      color: const Color(0xff0A8ED9),
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Row(
-                        children: [
-                          Image.asset(
-                            AssetPath.bedIconPath,
-                            height: 20,
-                            width: 20,
-                          ),
-                          const SizedBox(width: 5),
-                          Text(
-                            "$bedRoomCount Bedroom",
-                            style: GoogleFonts.raleway(),
-                          ),
-                        ],
-                      ),
-                      const Spacer(),
-                      Row(
-                        children: [
-                          Image.asset(
-                            AssetPath.bathIconPath,
-                            height: 20,
-                            width: 20,
-                          ),
-                          const SizedBox(width: 5),
-                          Text(
-                            "$bathRoomCount Bathroom",
-                            style: GoogleFonts.raleway(),
-                          ),
-                        ],
-                      ),
-                      const Spacer(),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
         ),
       ),
     );

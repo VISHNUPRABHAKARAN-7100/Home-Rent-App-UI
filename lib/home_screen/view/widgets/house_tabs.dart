@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../utils/custom_enums.dart';
-import 'home_tab.dart';
+import 'house_tab.dart';
 
 class HomeTabs extends StatelessWidget {
   const HomeTabs({super.key});
