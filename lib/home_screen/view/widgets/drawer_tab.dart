@@ -9,12 +9,14 @@ class DrawerTab extends StatelessWidget {
   const DrawerTab({
     super.key,
     required this.title,
-    required this.iconPath,
+    required this.selectedIconPath,
+    required this.unSelectedIconPath,
     required this.tab,
   });
 
   final String title;
-  final String iconPath;
+  final String selectedIconPath;
+  final String unSelectedIconPath;
   final DrawerList tab;
 
   @override
@@ -37,7 +39,9 @@ class DrawerTab extends StatelessWidget {
           child: ListTile(
             onTap: () => snapShot.switchTab(tab: tab),
             leading: Image.asset(
-              iconPath,
+              snapShot.currentTab == tab
+                  ? selectedIconPath
+                  : unSelectedIconPath,
               width: screenWidth * 0.055,
               height: screenWidth * 0.055,
             ),

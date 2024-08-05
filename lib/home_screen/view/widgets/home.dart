@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_rent_ui/home_screen/provider/home_screen_provider.dart';
+import 'package:home_rent_ui/home_screen/view/widgets/home_search_filed.dart';
 import 'package:provider/provider.dart';
 import 'home_app_bar.dart';
 
@@ -32,7 +33,10 @@ class Home extends StatelessWidget {
               const HomeAppBar(),
               Expanded(
                 child: ListView(
-                  children: const [],
+                  padding: const EdgeInsets.all(10),
+                  children: const [
+                    HomeSearchField(),
+                  ],
                 ),
               ),
             ],
