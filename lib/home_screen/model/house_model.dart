@@ -12,6 +12,7 @@ class HouseModel {
   final List<String> images;
   final double yearlyRent;
   final String ownerProfileImage;
+  final List<ReviewModel> reviews;
 
   HouseModel({
     required this.id,
@@ -27,6 +28,19 @@ class HouseModel {
     required this.images,
     required this.yearlyRent,
     required this.ownerProfileImage,
+    required this.reviews,
+  });
+}
+
+class ReviewModel {
+  final String name;
+  final double rating;
+  final String review;
+
+  ReviewModel({
+    required this.name,
+    required this.rating,
+    required this.review,
   });
 }
 
@@ -57,7 +71,25 @@ List<HouseModel> allHouseList = [
       "https://images.pexels.com/photos/5825567/pexels-photo-5825567.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/6480707/pexels-photo-6480707.jpeg?auto=compress&cs=tinysrgb&w=600",
     ],
-    yearlyRent: 2500000000,
+    yearlyRent: 2500000,
+    reviews: [
+      ReviewModel(
+        name: "Alice Smith",
+        rating: 4.5,
+        review: "A beautiful house with a great garden. Had a wonderful stay!",
+      ),
+      ReviewModel(
+        name: "Bob Johnson",
+        rating: 4.0,
+        review:
+            "Spacious and well-furnished, but a bit far from the city center.",
+      ),
+      ReviewModel(
+        name: "Clara Wilson",
+        rating: 5.0,
+        review: "Absolutely loved it! Perfect for a family getaway.",
+      ),
+    ],
   ),
   HouseModel(
     id: 2,
@@ -82,7 +114,25 @@ List<HouseModel> allHouseList = [
       "https://images.pexels.com/photos/2565222/pexels-photo-2565222.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=600",
     ],
-    yearlyRent: 3000000000,
+    yearlyRent: 3000000,
+    reviews: [
+      ReviewModel(
+        name: "Alice Smith",
+        rating: 4.5,
+        review: "A beautiful house with a great garden. Had a wonderful stay!",
+      ),
+      ReviewModel(
+        name: "Bob Johnson",
+        rating: 4.0,
+        review:
+            "Spacious and well-furnished, but a bit far from the city center.",
+      ),
+      ReviewModel(
+        name: "Clara Wilson",
+        rating: 5.0,
+        review: "Absolutely loved it! Perfect for a family getaway.",
+      ),
+    ],
   ),
   HouseModel(
     id: 3,
@@ -107,7 +157,24 @@ List<HouseModel> allHouseList = [
       "https://images.pexels.com/photos/25391836/pexels-photo-25391836/free-photo-of-interior-of-a-bedroom.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/3209045/pexels-photo-3209045.jpeg?auto=compress&cs=tinysrgb&w=600",
     ],
-    yearlyRent: 1800000000,
+    yearlyRent: 1800000,
+    reviews: [
+      ReviewModel(
+        name: "David Brown",
+        rating: 3.8,
+        review: "Nice place, but could use some maintenance in a few areas.",
+      ),
+      ReviewModel(
+        name: "Emma Green",
+        rating: 4.2,
+        review: "Very cozy and comfortable. Would recommend!",
+      ),
+      ReviewModel(
+        name: "Frank White",
+        rating: 4.7,
+        review: "Great location and wonderful amenities. Will visit again.",
+      ),
+    ],
   ),
   HouseModel(
     id: 4,
@@ -131,7 +198,19 @@ List<HouseModel> allHouseList = [
       "https://images.pexels.com/photos/6970048/pexels-photo-6970048.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/6920454/pexels-photo-6920454.jpeg?auto=compress&cs=tinysrgb&w=600",
     ],
-    yearlyRent: 1200000000,
+    yearlyRent: 1200000,
+    reviews: [
+      ReviewModel(
+        name: "Grace Black",
+        rating: 4.1,
+        review: "Enjoyed the stay but had some noise issues at night.",
+      ),
+      ReviewModel(
+        name: "Henry Blue",
+        rating: 4.9,
+        review: "Fantastic experience. Best place we've ever stayed!",
+      ),
+    ],
   ),
   HouseModel(
     id: 5,
@@ -155,7 +234,24 @@ List<HouseModel> allHouseList = [
       "https://images.pexels.com/photos/7118797/pexels-photo-7118797.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/6920447/pexels-photo-6920447.jpeg?auto=compress&cs=tinysrgb&w=600",
     ],
-    yearlyRent: 5000000000,
+    yearlyRent: 5000000,
+    reviews: [
+      ReviewModel(
+        name: "Ivy Scott",
+        rating: 3.5,
+        review: "The view was great, but the service was a bit slow.",
+      ),
+      ReviewModel(
+        name: "Jack Taylor",
+        rating: 4.3,
+        review: "Loved the atmosphere and the interior design. Very modern!",
+      ),
+      ReviewModel(
+        name: "Kathy Morgan",
+        rating: 4.8,
+        review: "Highly recommended! The staff was incredibly helpful.",
+      ),
+    ],
   ),
   HouseModel(
     id: 6,
@@ -178,7 +274,24 @@ List<HouseModel> allHouseList = [
       "https://images.pexels.com/photos/4819304/pexels-photo-4819304.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/7118796/pexels-photo-7118796.jpeg?auto=compress&cs=tinysrgb&w=600",
     ],
-    yearlyRent: 2800000000,
+    yearlyRent: 2800000,
+    reviews: [
+      ReviewModel(
+        name: "Liam Harris",
+        rating: 3.9,
+        review: "Decent stay, but the breakfast options were limited.",
+      ),
+      ReviewModel(
+        name: "Mia Thomas",
+        rating: 4.6,
+        review: "The place was clean and well-kept. Had a pleasant time.",
+      ),
+      ReviewModel(
+        name: "Noah Walker",
+        rating: 4.4,
+        review: "Good value for money. Everything was as advertised.",
+      ),
+    ],
   ),
   HouseModel(
     id: 7,
@@ -202,7 +315,19 @@ List<HouseModel> allHouseList = [
       "https://images.pexels.com/photos/10388450/pexels-photo-10388450.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/10251886/pexels-photo-10251886.jpeg?auto=compress&cs=tinysrgb&w=600",
     ],
-    yearlyRent: 1500000000,
+    yearlyRent: 1500000,
+    reviews: [
+      ReviewModel(
+        name: "Olivia Turner",
+        rating: 5.0,
+        review: "Simply perfect! Can't wait to come back.",
+      ),
+      ReviewModel(
+        name: "Paul Adams",
+        rating: 4.2,
+        review: "Comfortable stay but experienced some check-in delays.",
+      ),
+    ],
   ),
   HouseModel(
     id: 8,
@@ -225,7 +350,20 @@ List<HouseModel> allHouseList = [
       "https://images.pexels.com/photos/25311423/pexels-photo-25311423/free-photo-of-view-of-a-window-in-a-building-with-a-turkish-flag-and-rugs-on-the-walls.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/10418903/pexels-photo-10418903.jpeg?auto=compress&cs=tinysrgb&w=600",
     ],
-    yearlyRent: 1600000000,
+    yearlyRent: 1600000,
+    reviews: [
+      ReviewModel(
+        name: "Quinn Carter",
+        rating: 4.5,
+        review: "Wonderful views and friendly staff. Highly recommend!",
+      ),
+      ReviewModel(
+        name: "Rachel Foster",
+        rating: 3.7,
+        review:
+            "The room was nice, but we had issues with the Wi-Fi connection.",
+      ),
+    ],
   ),
   HouseModel(
     id: 9,
@@ -250,7 +388,19 @@ List<HouseModel> allHouseList = [
       "https://images.pexels.com/photos/827528/pexels-photo-827528.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/25313617/pexels-photo-25313617/free-photo-of-room-of-vintage-house.jpeg?auto=compress&cs=tinysrgb&w=600",
     ],
-    yearlyRent: 2200000000,
+    yearlyRent: 2200000,
+    reviews: [
+      ReviewModel(
+        name: "Sam Brooks",
+        rating: 4.9,
+        review: "Top-notch service and fantastic ambiance. A true luxury stay.",
+      ),
+      ReviewModel(
+        name: "Tina Bell",
+        rating: 4.0,
+        review: "Good for a short stay, but lacked some amenities.",
+      ),
+    ],
   ),
   HouseModel(
     id: 10,
@@ -275,7 +425,14 @@ List<HouseModel> allHouseList = [
       "https://images.pexels.com/photos/210552/pexels-photo-210552.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/3551216/pexels-photo-3551216.jpeg?auto=compress&cs=tinysrgb&w=600",
     ],
-    yearlyRent: 3500000000,
+    yearlyRent: 3500000,
+    reviews: [
+      ReviewModel(
+        name: "Uma Patel",
+        rating: 4.6,
+        review: "Loved the decor and the staff was very accommodating.",
+      ),
+    ],
   ),
   HouseModel(
     id: 11,
@@ -299,7 +456,20 @@ List<HouseModel> allHouseList = [
       "https://images.pexels.com/photos/2506990/pexels-photo-2506990.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/2134224/pexels-photo-2134224.jpeg?auto=compress&cs=tinysrgb&w=600",
     ],
-    yearlyRent: 1900000000,
+    yearlyRent: 1900000,
+    reviews: [
+      ReviewModel(
+        name: "Victor Lane",
+        rating: 3.8,
+        review:
+            "Nice place, but the air conditioning was not working properly.",
+      ),
+      ReviewModel(
+        name: "Wendy Clark",
+        rating: 4.7,
+        review: "Amazing food and great location. Would visit again.",
+      ),
+    ],
   ),
   HouseModel(
     id: 12,
@@ -323,7 +493,24 @@ List<HouseModel> allHouseList = [
       "https://images.pexels.com/photos/260046/pexels-photo-260046.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=600",
     ],
-    yearlyRent: 2100000000,
+    yearlyRent: 2100000,
+    reviews: [
+      ReviewModel(
+        name: "Xander Lee",
+        rating: 4.3,
+        review: "Good overall experience but can improve on cleanliness.",
+      ),
+      ReviewModel(
+        name: "Yara Kim",
+        rating: 5.0,
+        review: "Exceeded all expectations. Everything was perfect!",
+      ),
+      ReviewModel(
+        name: "Zach Morris",
+        rating: 4.1,
+        review: "Pleasant stay with some room for improvement.",
+      ),
+    ],
   ),
   HouseModel(
     id: 13,
@@ -348,12 +535,34 @@ List<HouseModel> allHouseList = [
       "https://images.pexels.com/photos/2227832/pexels-photo-2227832.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/271795/pexels-photo-271795.jpeg?auto=compress&cs=tinysrgb&w=600",
     ],
-    yearlyRent: 1400000000,
+    yearlyRent: 1400000,
+    reviews: [
+      ReviewModel(
+        name: "Amanda Fox",
+        rating: 3.6,
+        review: "The room was okay, but the staff was not very attentive.",
+      ),
+      ReviewModel(
+        name: "Brian King",
+        rating: 4.4,
+        review: "Loved the location and the room was spacious and clean.",
+      ),
+      ReviewModel(
+        name: "Chloe Reed",
+        rating: 4.8,
+        review: "Fantastic stay! The pool area was especially nice.",
+      ),
+      ReviewModel(
+        name: "Daniel Evans",
+        rating: 3.9,
+        review: "Overall a good stay, but the parking situation was difficult.",
+      ),
+    ],
   ),
   HouseModel(
     id: 14,
     image:
-        "https://images.pexels.com/photos/4797980/pexels-photo-4797980.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/5824522/pexels-photo-5824522.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "Elegant Loft",
     address: "Jl. Pusat Kota No. 30",
     distance: 1.5,
@@ -374,7 +583,19 @@ List<HouseModel> allHouseList = [
       "https://images.pexels.com/photos/1034584/pexels-photo-1034584.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/265004/pexels-photo-265004.jpeg?auto=compress&cs=tinysrgb&w=600",
     ],
-    yearlyRent: 1700000000,
+    yearlyRent: 1700000,
+    reviews: [
+      ReviewModel(
+        name: "Evelyn Wood",
+        rating: 5.0,
+        review: "Best vacation ever! The resort was beyond beautiful.",
+      ),
+      ReviewModel(
+        name: "Felix Graham",
+        rating: 4.0,
+        review: "Nice place for the price, but can be a bit noisy at night.",
+      ),
+    ],
   ),
   HouseModel(
     id: 15,
@@ -400,7 +621,39 @@ List<HouseModel> allHouseList = [
       "https://images.pexels.com/photos/279648/pexels-photo-279648.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/447592/pexels-photo-447592.jpeg?auto=compress&cs=tinysrgb&w=600",
     ],
-    yearlyRent: 2400000000,
+    yearlyRent: 2400000,
+    reviews: [
+      ReviewModel(
+        name: "Georgia Brooks",
+        rating: 4.7,
+        review: "The service was impeccable, and the spa was amazing!",
+      ),
+      ReviewModel(
+        name: "Hugo White",
+        rating: 4.1,
+        review: "The breakfast was fantastic, but the rooms need updating.",
+      ),
+      ReviewModel(
+        name: "Isla Jordan",
+        rating: 4.5,
+        review: "Great location for exploring the city. Very convenient.",
+      ),
+      ReviewModel(
+        name: "Jacob Martin",
+        rating: 4.3,
+        review: "Clean and comfortable with friendly staff. Enjoyed our stay.",
+      ),
+      ReviewModel(
+        name: "Keira Knight",
+        rating: 4.2,
+        review: "The ambiance was lovely, but the Wi-Fi was inconsistent.",
+      ),
+      ReviewModel(
+        name: "Leo Parker",
+        rating: 4.9,
+        review: "Superb service and facilities. Truly a luxurious experience.",
+      ),
+    ],
   ),
 ];
 

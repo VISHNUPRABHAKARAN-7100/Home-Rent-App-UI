@@ -13,6 +13,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 import 'widgets/description_section.dart';
 import 'widgets/house_image_with_overlay.dart';
 import 'widgets/owner_contact_section.dart';
+import 'widgets/review_card.dart';
 
 class HouseDetails extends StatelessWidget {
   const HouseDetails({super.key, required this.id});
@@ -154,6 +155,19 @@ class HouseDetails extends StatelessWidget {
                         },
                       ),
                     ),
+                    const SizedBox(height: 15),
+                    if (house.reviews.isNotEmpty)
+                      const SectionTitle(title: "Reviews", actionText: ""),
+                    ListView.builder(
+                      itemCount: house.reviews.length,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      padding: const EdgeInsets.only(bottom: 90),
+                      itemBuilder: (context, index) => ReviewsCard(
+                        house: house,
+                        index: index,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -161,7 +175,7 @@ class HouseDetails extends StatelessWidget {
           ),
           // Rent now button and rent per year.
           bottomSheet: Padding(
-            padding: const EdgeInsets.fromLTRB(10, 0, 10, 20),
+            padding: const EdgeInsets.all(10),
             child: Container(
               color: CustomColors.backgroundBg,
               height: 60,
