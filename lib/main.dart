@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:home_rent_ui/home_screen/provider/home_screen_provider.dart';
 import 'package:home_rent_ui/home_screen/view/home_screen.dart';
+import 'package:home_rent_ui/house_details/provider/house_details_provider.dart';
 import 'package:home_rent_ui/utils/custom_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
@@ -29,6 +30,9 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(
             create: (context) => HomeScreenProvider(),
+          ),
+          ChangeNotifierProvider(
+            create: (context) => HouseDetailsProvider(),
           )
         ],
         child: MaterialApp(

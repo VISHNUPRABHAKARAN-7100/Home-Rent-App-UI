@@ -27,7 +27,7 @@ class DistanceLabel extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              AssetPath.locationWhiteIconPath,
+              AssetPath.locationIconPath,
               height: 20,
               width: 20,
             ),

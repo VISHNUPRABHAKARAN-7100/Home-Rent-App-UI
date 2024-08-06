@@ -42,8 +42,6 @@ class HomeSearchField extends StatelessWidget {
               ),
               child: Image.asset(
                 AssetPath.settingsWithLinesIconPath,
-                height: 0.0,
-                width: 0.0,
               ),
             )
           ],

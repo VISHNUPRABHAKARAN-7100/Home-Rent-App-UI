@@ -25,20 +25,17 @@ class DrawerScreen extends StatelessWidget {
               DrawerTab(
                 title: "Home",
                 tab: DrawerList.home,
-                selectedIconPath: AssetPath.homeBlueIconPath,
-                unSelectedIconPath: AssetPath.homeWhiteIconPath,
+                iconPath: AssetPath.homeIconPath,
               ),
               DrawerTab(
                 title: "Profile",
                 tab: DrawerList.profile,
-                selectedIconPath: AssetPath.profileBlueIconPath,
-                unSelectedIconPath: AssetPath.profileBlueIconPath,
+                iconPath: AssetPath.profileIconPath,
               ),
               DrawerTab(
                 title: "Location",
                 tab: DrawerList.location,
-                selectedIconPath: AssetPath.locationBlueIconPath,
-                unSelectedIconPath: AssetPath.locationWhiteIconPath,
+                iconPath: AssetPath.locationIconPath,
               ),
               const SizedBox(height: 20),
               Divider(
@@ -49,14 +46,12 @@ class DrawerScreen extends StatelessWidget {
               DrawerTab(
                 title: "Bookmark",
                 tab: DrawerList.bookmark,
-                selectedIconPath: AssetPath.bookmarkBlueIconPath,
-                unSelectedIconPath: AssetPath.bookmarkWhiteIconPath,
+                iconPath: AssetPath.bookmarkIconPath,
               ),
               DrawerTab(
                 title: "Notifications",
                 tab: DrawerList.notifications,
-                selectedIconPath: AssetPath.notificationBlueIconPath,
-                unSelectedIconPath: AssetPath.notificationWhiteIconPath,
+                iconPath: AssetPath.notificationIconPath,
               ),
               const SizedBox(height: 20),
               Divider(
@@ -67,20 +62,17 @@ class DrawerScreen extends StatelessWidget {
               DrawerTab(
                 title: "Settings",
                 tab: DrawerList.settings,
-                selectedIconPath: AssetPath.settingsBlueIconPath,
-                unSelectedIconPath: AssetPath.settingsWhiteIconPath,
+                iconPath: AssetPath.settingsIconPath,
               ),
               DrawerTab(
                 title: "Help",
                 tab: DrawerList.help,
-                selectedIconPath: AssetPath.helpBlueIconPath,
-                unSelectedIconPath: AssetPath.helpWhiteIconPath,
+                iconPath: AssetPath.helpIconPath,
               ),
               DrawerTab(
                 title: "Log-out",
                 tab: DrawerList.logout,
-                selectedIconPath: AssetPath.logoutBlueIconPath,
-                unSelectedIconPath: AssetPath.logoutWhiteIconPath,
+                iconPath: AssetPath.logoutIconPath,
               ),
             ],
           ),

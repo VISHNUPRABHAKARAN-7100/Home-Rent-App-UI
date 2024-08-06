@@ -2,41 +2,31 @@ class AssetPath {
   static String basePathForIcons = "assets/icons/";
 
   // Home icon path.
-  static String homeWhiteIconPath = "${basePathForIcons}home_white.png";
-  static String homeBlueIconPath = "${basePathForIcons}home_blue.png";
+  static String homeIconPath = "${basePathForIcons}home.png";
 
   // Profile icon path.
-  static String profileWhiteIconPath = "${basePathForIcons}profile_blue.png";
-  static String profileBlueIconPath = "${basePathForIcons}profile_white.png";
+  static String profileIconPath = "${basePathForIcons}profile.png";
 
   // Location icon path.
-  static String locationWhiteIconPath = "${basePathForIcons}location_white.png";
-  static String locationBlueIconPath = "${basePathForIcons}location_blue.png";
+  static String locationIconPath = "${basePathForIcons}location.png";
 
   // Bookmark icon path.
-  static String bookmarkWhiteIconPath = "${basePathForIcons}bookmark_white.png";
-  static String bookmarkBlueIconPath = "${basePathForIcons}bookmark_blue.png";
+  static String bookmarkIconPath = "${basePathForIcons}bookmark.png";
 
   // Notifications icon path.
-  static String notificationWhiteIconPath =
-      "${basePathForIcons}notification_white.png";
-  static String notificationBlueIconPath =
-      "${basePathForIcons}notification_blue.png";
+  static String notificationIconPath = "${basePathForIcons}notification.png";
 
   // Settings icon path.
-  static String settingsWhiteIconPath = "${basePathForIcons}settings_white.png";
-  static String settingsBlueIconPath = "${basePathForIcons}settings_blue.png";
+  static String settingsIconPath = "${basePathForIcons}settings.png";
 
   // Help icon path.
-  static String helpBlueIconPath = "${basePathForIcons}help_blue.png";
-  static String helpWhiteIconPath = "${basePathForIcons}help_white.png";
+  static String helpIconPath = "${basePathForIcons}help.png";
 
   // Message icon path.
   static String messageIconPath = "${basePathForIcons}message.png";
 
   // Log-out icon path.
-  static String logoutBlueIconPath = "${basePathForIcons}log_out_blue.png";
-  static String logoutWhiteIconPath = "${basePathForIcons}log_out_white.png";
+  static String logoutIconPath = "${basePathForIcons}log_out.png";
 
   // Drawer icon path.
   static String drawerIconPath = "${basePathForIcons}drawer_icon.png";
@@ -50,4 +40,10 @@ class AssetPath {
 
   // Bath icon path.
   static String bathIconPath = "${basePathForIcons}bath.png";
+
+  // Call icon path.
+  static String callIconPath = "${basePathForIcons}call.png";
+
+  // Speech icon path.
+  static String speechIconPath = "${basePathForIcons}speech_bubble.png";
 }
