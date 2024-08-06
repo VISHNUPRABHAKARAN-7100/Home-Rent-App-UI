@@ -17,4 +17,16 @@ class HouseDetailsProvider with ChangeNotifier {
       notifyListeners();
     }
   }
+
+  bool showShimmer = true;
+
+  disableShimmer() {
+    Future.delayed(
+      const Duration(seconds: 3),
+      () {
+        showShimmer = false;
+        notifyListeners();
+      },
+    );
+  }
 }

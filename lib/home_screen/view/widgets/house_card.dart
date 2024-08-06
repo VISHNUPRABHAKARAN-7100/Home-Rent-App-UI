@@ -101,18 +101,20 @@ class HouseCard extends StatelessWidget {
                             width: 85,
                             height: 35,
                             child: Row(
+                              mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Image.asset(
                                   AssetPath.locationIconPath,
-                                  height: 20,
-                                  width: 20,
+                                  height: 15,
+                                  width: 15,
                                 ),
                                 const SizedBox(width: 5),
                                 Text(
                                   "$distance km",
                                   style: GoogleFonts.raleway(
                                     color: Colors.white,
+                                    fontSize: 16,
                                   ),
                                 ),
                               ],
