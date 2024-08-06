@@ -48,10 +48,10 @@ class OwnerContactSection extends StatelessWidget {
             GestureDetector(
               onTap: onCallPressed,
               child: Container(
-                width: screenHeight * 0.06,
-                height: screenHeight * 0.06,
+                width: screenHeight * 0.05,
+                height: screenHeight * 0.05,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(10),
                   gradient: const LinearGradient(
                     colors: [
                       Color(0xffA0DAFB),
@@ -70,10 +70,10 @@ class OwnerContactSection extends StatelessWidget {
             GestureDetector(
               onTap: onMessagePressed,
               child: Container(
-                width: screenHeight * 0.06,
-                height: screenHeight * 0.06,
+                width: screenHeight * 0.05,
+                height: screenHeight * 0.05,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(10),
                   gradient: const LinearGradient(
                     colors: [
                       Color(0xffA0DAFB),

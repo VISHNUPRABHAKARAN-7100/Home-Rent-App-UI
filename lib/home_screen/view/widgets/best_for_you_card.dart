@@ -73,13 +73,6 @@ class _BestForYouCardState extends State<BestForYouCard> {
                             fit: BoxFit.cover,
                             height: 100,
                             width: 100,
-                            // placeholder: (BuildContext context, url) => Center(
-                            //   child: CircularProgressIndicator(
-                            //     backgroundColor: CustomColors.mainBlue,
-                            //     color: Colors.grey,
-                            //     strokeAlign: -2,
-                            //   ),
-                            // ),
                             errorWidget: (BuildContext context, url, error) =>
                                 const Icon(Icons.error),
                           ),

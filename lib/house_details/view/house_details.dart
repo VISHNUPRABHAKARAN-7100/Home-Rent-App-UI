@@ -1,7 +1,11 @@
+import 'dart:developer';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:home_rent_ui/home_screen/model/house_model.dart';
+import 'package:home_rent_ui/home_screen/view/widgets/section_title.dart';
 import 'package:home_rent_ui/house_details/provider/house_details_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -19,6 +23,10 @@ class HouseDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final house = allHouseList.firstWhere((e) => e.id == id);
+
+    // Retrieves the size of the device screen.
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
@@ -69,6 +77,77 @@ class HouseDetails extends StatelessWidget {
                         );
                       },
                     ),
+                    const SectionTitle(
+                      title: "Gallery",
+                      actionText: "",
+                    ),
+                    const SizedBox(height: 15),
+                    SizedBox(
+                      height: screenWidth * 0.2,
+                      child: ListView.builder(
+                        itemCount:
+                            house.images.length < 4 ? house.images.length : 4,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          if (index == 3 && house.images.length > 4) {
+                            // Display the fourth image with the overlay text
+                            return Stack(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    image: DecorationImage(
+                                      image: CachedNetworkImageProvider(
+                                        house.images[index],
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  margin: const EdgeInsets.only(right: 10),
+                                  height: screenWidth * 0.2,
+                                  width: screenWidth * 0.2,
+                                ),
+                                Container(
+                                  margin: const EdgeInsets.only(right: 10),
+                                  height: screenWidth * 0.2,
+                                  width: screenWidth * 0.2,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.black54,
+                                  ),
+                                  child: Text(
+                                    '+${house.images.length - 4}',
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            );
+                          } else {
+                            // Display other images
+                            return Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                  image: CachedNetworkImageProvider(
+                                    house.images[index],
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              margin: const EdgeInsets.only(right: 10),
+                              height: screenWidth * 0.2,
+                              width: screenWidth * 0.2,
+                            );
+                          }
+                        },
+                      ),
+                    )
                   ],
                 ),
               ),
