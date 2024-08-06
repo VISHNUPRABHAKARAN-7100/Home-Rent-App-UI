@@ -28,7 +28,7 @@ class SectionTitle extends StatelessWidget {
         Text(
           actionText,
           style: GoogleFonts.raleway(
-            fontSize: screenWidth * 0.04,
+            fontSize: screenWidth * 0.035,
             color: const Color(0xff858585),
           ),
         ),

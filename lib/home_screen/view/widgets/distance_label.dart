@@ -18,7 +18,7 @@ class DistanceLabel extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: const Color(0xff739dba),
+          color: const Color(0xffbebebe),
           borderRadius: BorderRadius.circular(15),
         ),
         width: 85,
