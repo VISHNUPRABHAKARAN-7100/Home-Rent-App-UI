@@ -17,6 +17,7 @@ class HomeAppBar extends StatelessWidget {
         builder: (context, snapShot, child) => Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            // Button for open drawer.
             snapShot.isDrawerOpen
                 ? GestureDetector(
                     onTap: () => snapShot.openDrawer(),
@@ -35,6 +36,7 @@ class HomeAppBar extends StatelessWidget {
                   ),
             Row(
               children: [
+                // Location icon.
                 Image.asset(
                   AssetPath.locationFilledIconPath,
                   width: 25,
@@ -42,6 +44,7 @@ class HomeAppBar extends StatelessWidget {
                   color: CustomColors.mainBlue,
                 ),
                 const SizedBox(width: 5),
+                // Current location
                 const Text(
                   "Payyannur",
                   style: TextStyle(

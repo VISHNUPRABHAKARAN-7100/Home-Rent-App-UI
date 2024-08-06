@@ -16,6 +16,7 @@ class HomeTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<HomeScreenProvider>(
       builder: (context, snapShot, child) => GestureDetector(
+        // Function to change the tab.
         onTap: () => snapShot.switchHomeTab(homeTab: homeTabEnum),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 300),

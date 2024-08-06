@@ -43,8 +43,12 @@ class HouseDetails extends StatelessWidget {
                 id: id,
                 house: house,
                 onBackPressed: () {
-                  Provider.of<HouseDetailsProvider>(context, listen: false)
-                      .isExpanded = false;
+                  // Converting the description expanded value to false.
+                  var houseDetailsProvider =
+                      Provider.of<HouseDetailsProvider>(context, listen: false);
+                  if (houseDetailsProvider.isExpanded) {
+                    houseDetailsProvider.isExpanded = false;
+                  }
                   Navigator.pop(context);
                 },
               ),
@@ -65,17 +69,20 @@ class HouseDetails extends StatelessWidget {
                     const SizedBox(height: 10),
                     OwnerContactSection(
                       house: house,
+                      // Navigating to dialer.
                       onCallPressed: () =>
                           launchUrlString("tel://${house.ownerContact}"),
+                      // Navigating to WhatsApp chat.
                       onMessagePressed: () async => await launchUrl(
                         Uri.parse(
                             "https://wa.me/${house.ownerContact}?text=Hello"),
                       ),
                     ),
-                    const SectionTitle(
-                      title: "Gallery",
-                      actionText: "",
-                    ),
+                    if (house.images.isNotEmpty)
+                      const SectionTitle(
+                        title: "Gallery",
+                        actionText: "",
+                      ),
                     const SizedBox(height: 15),
                     SizedBox(
                       height: screenWidth * 0.2,
@@ -87,6 +94,9 @@ class HouseDetails extends StatelessWidget {
                         itemBuilder: (context, index) {
                           if (index == 3 && house.images.length > 4) {
                             // Display the fourth image with the overlay text
+                            // If the gallery images are more than 4,
+                            // then, on top of the 4th image, there will
+                            // be a text with the remaining number of images.
                             return Stack(
                               children: [
                                 Container(
@@ -103,6 +113,7 @@ class HouseDetails extends StatelessWidget {
                                   height: screenWidth * 0.2,
                                   width: screenWidth * 0.2,
                                 ),
+                                // Remaining images count.
                                 Container(
                                   margin: const EdgeInsets.only(right: 10),
                                   height: screenWidth * 0.2,
@@ -148,6 +159,7 @@ class HouseDetails extends StatelessWidget {
               ),
             ],
           ),
+          // Rent now button and rent per year.
           bottomSheet: Padding(
             padding: const EdgeInsets.fromLTRB(10, 0, 10, 20),
             child: Container(

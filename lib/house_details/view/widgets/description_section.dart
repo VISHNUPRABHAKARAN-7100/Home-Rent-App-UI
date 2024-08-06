@@ -18,6 +18,9 @@ class DescriptionSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<HouseDetailsProvider>(
       builder: (context, provider, child) {
+        // If the description content length is greater
+        // then 100, then it will be shown with ... and
+        // see more button will be shown.
         final isExpanded = provider.isExpanded;
         final truncatedDescription = house.description.length > 100
             ? '${house.description.substring(0, 100)}...'
@@ -38,7 +41,7 @@ class DescriptionSection extends StatelessWidget {
                     ..onTap = () => provider.toggleExpansion(),
                   text: isExpanded ? ' See Less' : ' See More',
                   style: const TextStyle(color: Colors.blue),
-                )
+                ),
             ],
           ),
         );

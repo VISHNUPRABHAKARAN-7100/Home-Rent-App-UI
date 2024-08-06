@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,9 +24,12 @@ class OwnerContactSection extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     return ListTile(
       contentPadding: EdgeInsets.zero,
+      // Owner's image.
       leading: CircleAvatar(
-        backgroundImage: NetworkImage(house.ownerProfileImage),
+        backgroundImage: CachedNetworkImageProvider(house.ownerProfileImage),
+        backgroundColor: Colors.transparent,
       ),
+      // Owner's name.
       title: Text(
         house.ownerName,
         overflow: TextOverflow.ellipsis,
@@ -45,6 +49,7 @@ class OwnerContactSection extends StatelessWidget {
         width: (screenHeight * 0.12) + 20,
         child: Row(
           children: [
+            // Owner's contact number.
             GestureDetector(
               onTap: onCallPressed,
               child: Container(
@@ -67,6 +72,7 @@ class OwnerContactSection extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 20),
+            // Message functionality with owner.
             GestureDetector(
               onTap: onMessagePressed,
               child: Container(

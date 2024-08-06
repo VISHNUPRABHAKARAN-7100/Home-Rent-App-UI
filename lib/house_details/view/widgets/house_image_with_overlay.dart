@@ -56,7 +56,7 @@ class HouseImageWithOverlay extends StatelessWidget {
             ),
           ),
         ),
-        // Back and Bookmark Buttons
+        // Back Button
         Positioned(
           left: 30,
           child: SafeArea(
@@ -75,6 +75,7 @@ class HouseImageWithOverlay extends StatelessWidget {
             ),
           ),
         ),
+        // Bookmark Button
         Positioned(
           right: 30,
           child: SafeArea(
@@ -88,7 +89,11 @@ class HouseImageWithOverlay extends StatelessWidget {
             ),
           ),
         ),
-        // House Details
+        // House Details,
+        // 1. Title
+        // 2. Address
+        // 3. Number of available bedrooms
+        // 4. Number of available bathrooms
         Positioned(
           bottom: 30,
           left: 30,

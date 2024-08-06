@@ -49,6 +49,7 @@ class HouseCard extends StatelessWidget {
                   height: 290,
                   width: 230,
                   placeholder: (BuildContext context, url) =>
+                      // Shimmer as loading indicator.
                       Shimmer.fromColors(
                     baseColor: Colors.grey[300]!,
                     highlightColor: Colors.grey[100]!,
@@ -62,6 +63,7 @@ class HouseCard extends StatelessWidget {
                       const Icon(Icons.error),
                   imageBuilder: (context, imageProvider) => Stack(
                     children: [
+                      // House image.
                       Container(
                         height: 290,
                         width: 230,
@@ -73,6 +75,7 @@ class HouseCard extends StatelessWidget {
                           ),
                         ),
                       ),
+                      // Gradient for the House image.
                       Container(
                         height: 290,
                         width: 230,
@@ -89,6 +92,7 @@ class HouseCard extends StatelessWidget {
                           ),
                         ),
                       ),
+                      // Location icon
                       Positioned(
                         right: 20,
                         top: 20,
@@ -121,6 +125,9 @@ class HouseCard extends StatelessWidget {
                           ),
                         ),
                       ),
+                      // House details,
+                      // 1. Title
+                      // 2. Address
                       Positioned(
                         bottom: 10,
                         left: 10,

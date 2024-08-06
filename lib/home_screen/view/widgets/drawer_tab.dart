@@ -35,6 +35,7 @@ class DrawerTab extends StatelessWidget {
             ),
           ),
           child: ListTile(
+            // Function to change drawer tab.
             onTap: () => snapShot.switchDrawerTab(tab: tab),
             leading: Image.asset(
               iconPath,
@@ -44,6 +45,7 @@ class DrawerTab extends StatelessWidget {
               width: screenWidth * 0.055,
               height: screenWidth * 0.055,
             ),
+            // Title of the drawer tab.
             title: Text(
               tab.name.capitalize(),
               style: TextStyle(

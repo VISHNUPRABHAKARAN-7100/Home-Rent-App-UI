@@ -16,8 +16,10 @@ class HomeSearchField extends StatelessWidget {
         width: screenWidth,
         child: Row(
           children: [
+            // Text field for search.
             Expanded(
               child: CustomTextFormField(
+                readOnly: true,
                 labelText: "Search address, or near you",
                 validator: (p0) {
                   return null;
@@ -26,6 +28,8 @@ class HomeSearchField extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
+
+            // Icon for filter.
             Container(
               width: screenHeight * 0.065,
               height: screenHeight * 0.065,

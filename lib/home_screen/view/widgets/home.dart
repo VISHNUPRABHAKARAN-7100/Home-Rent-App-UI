@@ -35,6 +35,9 @@ class Home extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
+              // Contains
+              // 1. Button for open drawer.
+              // 2. Current location(it is dummy right now).
               const HomeAppBar(),
               const HomeSearchField(),
               Expanded(
@@ -42,13 +45,18 @@ class Home extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
                   children: [
                     const SizedBox(height: 20),
+                    // Tabs for select different types of category.
                     const HomeTabs(),
                     const SizedBox(height: 20),
+
                     const SectionTitle(
                       title: "Near from you",
                       actionText: "See more",
                     ),
+
                     const SizedBox(height: 20),
+
+                    // Home list.
                     SizedBox(
                       height: 290,
                       child: ListView.builder(
@@ -66,12 +74,18 @@ class Home extends StatelessWidget {
                         },
                       ),
                     ),
+
                     const SizedBox(height: 20),
-                    const SectionTitle(
-                      title: "Best for you",
-                      actionText: "See more",
-                    ),
-                    const SizedBox(height: 20),
+
+                    if (bestForYouList.isNotEmpty) ...[
+                      const SectionTitle(
+                        title: "Best for you",
+                        actionText: "See more",
+                      ),
+                      const SizedBox(height: 20),
+                    ],
+
+                    // Best for you list.
                     ListView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: bestForYouList.length,

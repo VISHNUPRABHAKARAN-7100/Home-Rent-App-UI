@@ -51,6 +51,7 @@ class _BestForYouCardState extends State<BestForYouCard> {
           builder: (context, snapShot, child) => SizedBox(
             height: 100,
             child: snapShot.showShimmer
+                // Shimmer as loading.
                 ? Shimmer.fromColors(
                     period: const Duration(seconds: 2),
                     baseColor: Colors.grey[300]!,
@@ -62,7 +63,14 @@ class _BestForYouCardState extends State<BestForYouCard> {
                       ),
                     ),
                   )
-                : Row(
+                :
+                // House details,
+                // 1. Title
+                // 2. House image
+                // 3. Rent per year
+                // 4. Number of available bedrooms
+                // 5. Number of available bathrooms
+                Row(
                     children: [
                       Hero(
                         tag: 'house-image-${widget.id}',
