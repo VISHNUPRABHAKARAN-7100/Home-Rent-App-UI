@@ -59,7 +59,7 @@ class Home extends StatelessWidget {
                           return HouseCard(
                             id: house.id,
                             imageUrl: house.image,
-                            distance: "${house.distance} km",
+                            distance: house.distance,
                             title: house.title,
                             address: house.address,
                           );
