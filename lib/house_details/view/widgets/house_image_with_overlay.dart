@@ -1,6 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:home_rent_ui/house_details/provider/house_details_provider.dart';
+import 'package:home_rent_ui/utils/custom_colors.dart';
+import 'package:provider/provider.dart';
 
 import '../../../home_screen/model/house_model.dart';
 import '../../../utils/asset_path.dart';
@@ -76,15 +79,24 @@ class HouseImageWithOverlay extends StatelessWidget {
           ),
         ),
         // Bookmark Button
-        Positioned(
-          right: 30,
-          child: SafeArea(
-            child: CircleAvatar(
-              backgroundColor: const Color(0xffbebebe),
-              child: Image.asset(
-                AssetPath.bookmarkIconPath,
-                width: 20,
-                height: 20,
+        Consumer<HouseDetailsProvider>(
+          builder: (context, snapShot, child) => Positioned(
+            right: 30,
+            child: SafeArea(
+              child: GestureDetector(
+                onTap: () => snapShot.bookmarkHouse(house),
+                child: CircleAvatar(
+                  backgroundColor: const Color(0xffbebebe),
+                  child: snapShot.bookmarkedHouse.contains(house)
+                      ? Icon(
+                          Icons.favorite,
+                          color: CustomColors.mainBlue,
+                        )
+                      : const Icon(
+                          color: Colors.white,
+                          Icons.favorite_border,
+                        ),
+                ),
               ),
             ),
           ),
