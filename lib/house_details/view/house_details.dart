@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:home_rent_ui/home_screen/model/house_model.dart';
 import 'package:home_rent_ui/home_screen/view/widgets/section_title.dart';
 import 'package:home_rent_ui/house_details/provider/house_details_provider.dart';
+import 'package:home_rent_ui/utils/custom_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -26,7 +25,6 @@ class HouseDetails extends StatelessWidget {
 
     // Retrieves the size of the device screen.
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
@@ -38,8 +36,8 @@ class HouseDetails extends StatelessWidget {
             Provider.of<HouseDetailsProvider>(context, listen: false)
                 .isExpanded = false,
         child: Scaffold(
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          body: ListView(
+            padding: EdgeInsets.zero,
             children: [
               HouseImageWithOverlay(
                 id: id,
@@ -67,15 +65,12 @@ class HouseDetails extends StatelessWidget {
                     const SizedBox(height: 10),
                     OwnerContactSection(
                       house: house,
-                      onCallPressed: () {
-                        launchUrlString("tel://${house.ownerContact}");
-                      },
-                      onMessagePressed: () async {
-                        await launchUrl(
-                          Uri.parse(
-                              "https://wa.me/${house.ownerContact}?text=Hello"),
-                        );
-                      },
+                      onCallPressed: () =>
+                          launchUrlString("tel://${house.ownerContact}"),
+                      onMessagePressed: () async => await launchUrl(
+                        Uri.parse(
+                            "https://wa.me/${house.ownerContact}?text=Hello"),
+                      ),
                     ),
                     const SectionTitle(
                       title: "Gallery",
@@ -147,11 +142,69 @@ class HouseDetails extends StatelessWidget {
                           }
                         },
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
             ],
+          ),
+          bottomSheet: Padding(
+            padding: const EdgeInsets.fromLTRB(10, 0, 10, 20),
+            child: Container(
+              color: CustomColors.backgroundBg,
+              height: 60,
+              width: screenWidth,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    width: screenWidth * 0.6,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Price",
+                          style: GoogleFonts.raleway(),
+                        ),
+                        Text(
+                          "Rp. ${house.yearlyRent} / Year",
+                          style: GoogleFonts.raleway(
+                            fontWeight: FontWeight.w500,
+                            fontSize: screenWidth * 0.05,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Spacer(),
+                  Container(
+                    height: 60,
+                    width: screenWidth * 0.3,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      gradient: const LinearGradient(
+                        colors: [
+                          Color(0xffA0DAFB),
+                          Color(0xff0A8ED9),
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Rent Now",
+                      style: GoogleFonts.raleway(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ),

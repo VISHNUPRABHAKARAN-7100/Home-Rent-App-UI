@@ -137,14 +137,6 @@ class _BestForYouCardState extends State<BestForYouCard> {
                       ),
                     ],
                   ),
-            // child: Shimmer.fromColors(
-            //   period: const Duration(seconds: 2),
-            //   baseColor: Colors.grey[300]!,
-            //   highlightColor: Colors.grey[100]!,
-            //   child: Container(
-            //     color: Colors.red,
-            //   ),
-            // ),
           ),
         ),
       ),
