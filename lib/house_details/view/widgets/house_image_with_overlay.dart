@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -33,7 +34,9 @@ class HouseImageWithOverlay extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               image: DecorationImage(
-                image: NetworkImage(house.image),
+                image: CachedNetworkImageProvider(
+                  house.image,
+                ),
                 fit: BoxFit.cover,
               ),
             ),

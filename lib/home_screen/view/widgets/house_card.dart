@@ -39,116 +39,117 @@ class HouseCard extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            Hero(
+            ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: Hero(
                 tag: 'house-image-$id',
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: CachedNetworkImage(
-                    imageUrl: imageUrl,
-                    fit: BoxFit.cover,
-                    height: 290,
-                    width: 230,
-                    placeholder: (BuildContext context, url) =>
-                        Shimmer.fromColors(
-                      baseColor: Colors.grey[300]!,
-                      highlightColor: Colors.grey[100]!,
-                      child: Container(
+                child: CachedNetworkImage(
+                  imageUrl: imageUrl,
+                  fit: BoxFit.cover,
+                  height: 290,
+                  width: 230,
+                  placeholder: (BuildContext context, url) =>
+                      Shimmer.fromColors(
+                    baseColor: Colors.grey[300]!,
+                    highlightColor: Colors.grey[100]!,
+                    child: Container(
+                      height: 290,
+                      width: 230,
+                      color: Colors.white,
+                    ),
+                  ),
+                  errorWidget: (BuildContext context, url, error) =>
+                      const Icon(Icons.error),
+                  imageBuilder: (context, imageProvider) => Stack(
+                    children: [
+                      Container(
                         height: 290,
                         width: 230,
-                        color: Colors.white,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          image: DecorationImage(
+                            image: imageProvider,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
-                    ),
-                    errorWidget: (BuildContext context, url, error) =>
-                        const Icon(Icons.error),
-                    imageBuilder: (context, imageProvider) => Stack(
-                      children: [
-                        Container(
-                          height: 290,
-                          width: 230,
+                      Container(
+                        height: 290,
+                        width: 230,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          gradient: const LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Colors.transparent,
+                              Colors.transparent,
+                              Colors.black87,
+                            ],
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        right: 20,
+                        top: 20,
+                        child: Container(
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
+                            color: const Color(0xffbebebe),
                             borderRadius: BorderRadius.circular(15),
-                            image: DecorationImage(
-                              image: imageProvider,
-                              fit: BoxFit.cover,
-                            ),
                           ),
-                        ),
-                        Container(
-                          height: 290,
-                          width: 230,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            gradient: const LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                Colors.transparent,
-                                Colors.transparent,
-                                Colors.black87,
-                              ],
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          right: 20,
-                          top: 20,
-                          child: Container(
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: const Color(0xffbebebe),
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            width: 85,
-                            height: 35,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  AssetPath.locationIconPath,
-                                  height: 15,
-                                  width: 15,
-                                ),
-                                const SizedBox(width: 5),
-                                Text(
-                                  "$distance km",
-                                  style: GoogleFonts.raleway(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          bottom: 10,
-                          left: 10,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          width: 85,
+                          height: 35,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              Image.asset(
+                                AssetPath.locationIconPath,
+                                height: 15,
+                                width: 15,
+                              ),
+                              const SizedBox(width: 5),
                               Text(
-                                title,
+                                "$distance km",
                                 style: GoogleFonts.raleway(
                                   color: Colors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              Text(
-                                address,
-                                style: GoogleFonts.raleway(
-                                  color: const Color(0xffD7D7D7),
-                                  fontSize: 14,
+                                  fontSize: 16,
                                 ),
                               ),
                             ],
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                      Positioned(
+                        bottom: 10,
+                        left: 10,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              title,
+                              style: GoogleFonts.raleway(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Text(
+                              address,
+                              style: GoogleFonts.raleway(
+                                color: const Color(0xffD7D7D7),
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                )),
+                ),
+              ),
+            ),
           ],
         ),
       ),
