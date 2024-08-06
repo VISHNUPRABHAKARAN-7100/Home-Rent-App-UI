@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_rent_ui/utils/custom_colors.dart';
 import 'package:provider/provider.dart';
 import '../../../utils/asset_path.dart';
 import '../../provider/home_screen_provider.dart';
@@ -24,36 +25,30 @@ class HomeAppBar extends StatelessWidget {
                       size: 40,
                     ),
                   )
-                : const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Location",
-                        style: TextStyle(
-                          color: Color(0xff838383),
-                          fontSize: 18,
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            "Payyannur",
-                            style: TextStyle(
-                              fontSize: 25,
-                            ),
-                          ),
-                          Icon(Icons.keyboard_arrow_down_sharp)
-                        ],
-                      ),
-                    ],
+                : GestureDetector(
+                    onTap: () => snapShot.openDrawer(),
+                    child: Image.asset(
+                      AssetPath.drawerIconPath,
+                      width: screenWidth * 0.055,
+                      height: screenWidth * 0.055,
+                    ),
                   ),
-            GestureDetector(
-              onTap: () => snapShot.openDrawer(),
-              child: Image.asset(
-                AssetPath.drawerIconPath,
-                width: screenWidth * 0.055,
-                height: screenWidth * 0.055,
-              ),
+            Row(
+              children: [
+                Image.asset(
+                  AssetPath.locationFilledIconPath,
+                  width: 25,
+                  height: 25,
+                  color: CustomColors.mainBlue,
+                ),
+                const SizedBox(width: 5),
+                const Text(
+                  "Payyannur",
+                  style: TextStyle(
+                    fontSize: 25,
+                  ),
+                ),
+              ],
             ),
           ],
         ),

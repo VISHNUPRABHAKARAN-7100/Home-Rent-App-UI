@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:home_rent_ui/utils/custom_colors.dart';
 
 import '../../../house_details/view/house_details.dart';
 import '../../../utils/asset_path.dart';
@@ -40,11 +42,20 @@ class BestForYouCard extends StatelessWidget {
                 tag: 'house-image-$id',
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
-                  child: Image.network(
-                    imageUrl,
+                  child: CachedNetworkImage(
+                    imageUrl: imageUrl,
                     fit: BoxFit.cover,
                     height: 100,
                     width: 100,
+                    placeholder: (BuildContext context, url) => Center(
+                      child: CircularProgressIndicator(
+                        backgroundColor: CustomColors.mainBlue,
+                        color: Colors.grey,
+                        strokeAlign: -2,
+                      ),
+                    ),
+                    errorWidget: (BuildContext context, url, error) =>
+                        const Icon(Icons.error),
                   ),
                 ),
               ),

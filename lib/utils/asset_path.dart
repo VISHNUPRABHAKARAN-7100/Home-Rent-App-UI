@@ -9,6 +9,7 @@ class AssetPath {
 
   // Location icon path.
   static String locationIconPath = "${basePathForIcons}location.png";
+  static String locationFilledIconPath = "${basePathForIcons}location_filled.png";
 
   // Bookmark icon path.
   static String bookmarkIconPath = "${basePathForIcons}bookmark.png";
