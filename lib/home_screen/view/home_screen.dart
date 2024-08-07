@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:home_rent_ui/home_screen/provider/home_screen_provider.dart';
 import 'package:home_rent_ui/home_screen/view/widgets/drawer.dart';
-import 'package:home_rent_ui/home_screen/view/widgets/home.dart';
 import 'package:home_rent_ui/utils/custom_colors.dart';
+import 'package:home_rent_ui/wishlist_screen/view/wishlist_screen.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -24,7 +24,8 @@ class HomeScreen extends StatelessWidget {
           child: const Stack(
             children: [
               DrawerScreen(),
-              Home(),
+              // Home(),
+              WishlistScreen(),
             ],
           ),
         ),
