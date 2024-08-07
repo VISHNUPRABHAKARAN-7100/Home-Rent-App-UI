@@ -12,8 +12,8 @@ class AssetPath {
   static String locationFilledIconPath =
       "${basePathForIcons}location_filled.png";
 
-  // Bookmark icon path.
-  static String bookmarkIconPath = "${basePathForIcons}bookmark.png";
+  // Favorite icon path.
+  static String favoriteIconPath = "${basePathForIcons}favorite.png";
 
   // Notifications icon path.
   static String notificationIconPath = "${basePathForIcons}notification.png";

@@ -84,10 +84,10 @@ class HouseImageWithOverlay extends StatelessWidget {
             right: 30,
             child: SafeArea(
               child: GestureDetector(
-                onTap: () => snapShot.bookmarkHouse(house),
+                onTap: () => snapShot.addToFavoriteHouse(house),
                 child: CircleAvatar(
                   backgroundColor: const Color(0xffbebebe),
-                  child: snapShot.bookmarkedHouse.contains(house)
+                  child: snapShot.favoriteHouse.contains(house)
                       ? Icon(
                           Icons.favorite,
                           color: CustomColors.mainBlue,

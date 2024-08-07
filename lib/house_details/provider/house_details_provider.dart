@@ -31,13 +31,13 @@ class HouseDetailsProvider with ChangeNotifier {
     );
   }
 
-  List<HouseModel> bookmarkedHouse = [];
+  List<HouseModel> favoriteHouse = [];
 
-  void bookmarkHouse(HouseModel model) {
-    if (!bookmarkedHouse.contains(model)) {
-      bookmarkedHouse.add(model);
+  void addToFavoriteHouse(HouseModel model) {
+    if (!favoriteHouse.contains(model)) {
+      favoriteHouse.add(model);
     } else {
-      bookmarkedHouse.remove(model);
+      favoriteHouse.remove(model);
     }
     notifyListeners();
   }

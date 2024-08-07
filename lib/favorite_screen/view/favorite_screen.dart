@@ -3,37 +3,37 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:home_rent_ui/house_details/provider/house_details_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:home_rent_ui/home_screen/provider/home_screen_provider.dart';
 
-import '../../home_screen/provider/home_screen_provider.dart';
 import '../../utils/asset_path.dart';
 import '../../utils/custom_colors.dart';
 
-class WishlistScreen extends StatelessWidget {
-  const WishlistScreen({super.key});
+class FavoriteScreen extends StatelessWidget {
+  const FavoriteScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Retrieves the size of the device screen.
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-    return SafeArea(
-      child: Consumer<HomeScreenProvider>(
-        builder: (context, snapShot, child) => AnimatedContainer(
-          padding: const EdgeInsets.all(10.0),
-          duration: const Duration(milliseconds: 200),
-          transform: Matrix4.translationValues(snapShot.xOffset,
-              snapShot.isDrawerOpen ? screenWidth * 0.3 : 0, 0)
-            ..scale(snapShot.isDrawerOpen ? 0.9 : 1.00)
-            ..rotateX(snapShot.isDrawerOpen ? 0.5 : 0),
-          height: screenHeight,
-          width: screenWidth,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.horizontal(
-              left: Radius.circular(snapShot.isDrawerOpen ? 30 : 0),
-            ),
+
+    return Consumer<HomeScreenProvider>(
+      builder: (context, snapShot, child) => AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        transform: Matrix4.translationValues(
+            snapShot.xOffset, snapShot.isDrawerOpen ? screenWidth * 0.3 : 0, 0)
+          ..scale(snapShot.isDrawerOpen ? 0.9 : 1.00)
+          ..rotateX(snapShot.isDrawerOpen ? 0.5 : 0),
+        height: screenHeight,
+        width: screenWidth,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.horizontal(
+            left: Radius.circular(snapShot.isDrawerOpen ? 30 : 0),
           ),
-          child: SingleChildScrollView(
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
                 Row(
@@ -57,7 +57,7 @@ class WishlistScreen extends StatelessWidget {
                             ),
                           ),
                     Text(
-                      "Wishlist",
+                      "Favorites",
                       style: GoogleFonts.raleway(
                         fontWeight: FontWeight.w500,
                         fontSize: 30,
@@ -67,24 +67,18 @@ class WishlistScreen extends StatelessWidget {
                 ),
                 Consumer<HouseDetailsProvider>(
                   builder: (context, snapShot, child) {
-                    if (snapShot.bookmarkedHouse.isEmpty) {
+                    if (snapShot.favoriteHouse.isEmpty) {
                       return SizedBox(
-                        height: screenHeight,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/gifs/empty_wishlist.gif",
+                        height: screenHeight * 0.8,
+                        child: Center(
+                          child: Text(
+                            "Make something favorite...",
+                            style: GoogleFonts.raleway(
+                              color: Colors.black,
+                              fontSize: screenWidth * 0.045,
+                              fontWeight: FontWeight.w700,
                             ),
-                            Text(
-                              "Wishlist looks empty",
-                              style: GoogleFonts.raleway(
-                                color: Colors.black,
-                                fontSize: screenWidth * 0.035,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
                       );
                     }
@@ -96,7 +90,7 @@ class WishlistScreen extends StatelessWidget {
                         crossAxisSpacing: 8.0,
                         mainAxisSpacing: 8.0,
                       ),
-                      itemCount: snapShot.bookmarkedHouse.length,
+                      itemCount: snapShot.favoriteHouse.length,
                       itemBuilder: (context, index) {
                         return Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -111,7 +105,7 @@ class WishlistScreen extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(15),
                                       image: DecorationImage(
                                         image: CachedNetworkImageProvider(
-                                          snapShot.bookmarkedHouse[index].image,
+                                          snapShot.favoriteHouse[index].image,
                                         ),
                                         fit: BoxFit.cover,
                                       ),
@@ -135,14 +129,13 @@ class WishlistScreen extends StatelessWidget {
                                     right: 10,
                                     top: 10,
                                     child: GestureDetector(
-                                      onTap: () => snapShot.bookmarkHouse(
-                                          snapShot.bookmarkedHouse[index]),
+                                      onTap: () => snapShot.addToFavoriteHouse(
+                                          snapShot.favoriteHouse[index]),
                                       child: CircleAvatar(
                                         backgroundColor:
                                             const Color(0xffbebebe),
-                                        child: snapShot.bookmarkedHouse
-                                                .contains(snapShot
-                                                    .bookmarkedHouse[index])
+                                        child: snapShot.favoriteHouse.contains(
+                                                snapShot.favoriteHouse[index])
                                             ? Icon(
                                                 Icons.favorite,
                                                 color: CustomColors.mainBlue,
@@ -158,7 +151,7 @@ class WishlistScreen extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              snapShot.bookmarkedHouse[index].title,
+                              snapShot.favoriteHouse[index].title,
                               style: GoogleFonts.raleway(
                                 color: Colors.black,
                                 fontSize: screenWidth * 0.055,
@@ -167,7 +160,7 @@ class WishlistScreen extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                             ),
                             Text(
-                              "Rp. ${snapShot.bookmarkedHouse[index].yearlyRent.toString()} / Year",
+                              "Rp. ${snapShot.favoriteHouse[index].yearlyRent.toString()} / Year",
                               style: GoogleFonts.raleway(
                                 color: Colors.black,
                                 fontSize: screenWidth * 0.035,

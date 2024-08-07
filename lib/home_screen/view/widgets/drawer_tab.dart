@@ -36,7 +36,10 @@ class DrawerTab extends StatelessWidget {
           ),
           child: ListTile(
             // Function to change drawer tab.
-            onTap: () => snapShot.switchDrawerTab(tab: tab),
+            onTap: () {
+              snapShot.openDrawer();
+              snapShot.switchDrawerTab(tab: tab);
+            },
             leading: Image.asset(
               iconPath,
               color: snapShot.currentDrawerTab == tab

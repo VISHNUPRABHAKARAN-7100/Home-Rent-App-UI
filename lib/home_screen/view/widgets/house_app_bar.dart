@@ -19,11 +19,14 @@ class HomeAppBar extends StatelessWidget {
           children: [
             // Button for open drawer.
             snapShot.isDrawerOpen
-                ? GestureDetector(
-                    onTap: () => snapShot.openDrawer(),
-                    child: const Icon(
-                      Icons.close,
-                      size: 40,
+                ? Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GestureDetector(
+                      onTap: () => snapShot.openDrawer(),
+                      child: const Icon(
+                        Icons.close,
+                        size: 40,
+                      ),
                     ),
                   )
                 : GestureDetector(

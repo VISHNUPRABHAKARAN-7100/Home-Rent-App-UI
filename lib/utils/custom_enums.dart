@@ -2,7 +2,7 @@ enum DrawerList {
   home,
   profile,
   location,
-  bookmark,
+  favorite,
   notifications,
   settings,
   help,

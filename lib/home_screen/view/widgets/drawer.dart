@@ -44,9 +44,9 @@ class DrawerScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               DrawerTab(
-                title: "Bookmark",
-                tab: DrawerList.bookmark,
-                iconPath: AssetPath.bookmarkIconPath,
+                title: "Favorite",
+                tab: DrawerList.favorite,
+                iconPath: AssetPath.favoriteIconPath,
               ),
               DrawerTab(
                 title: "Notifications",
